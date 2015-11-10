@@ -1,14 +1,24 @@
-var NilsSony = NilsSony || {};
+var SonyNils = SonyNils || {};
     
-NilsSony.TwitchStream = (function (Util) {
+SonyNils.TwitchStream = (function (Util) {
     "use strict";
-    function hello() {
-        console.log(Util.getJson());
+
+    var BASE_URL = "https://api.twitch.tv/kraken/search/streams",
+        CALLBACK_NAME = "SonyNils.TwitchStream.recieveData";
+
+    function recieveData(json) {
+        console.log("recieveData", json);
+    }
+
+    function getData(query) {
+        var url = Util.addQueryToUrl(BASE_URL, query);
+        Util.getJson(url, CALLBACK_NAME);
     }
     
     return {
-        'hello' : hello
+        'getData' : getData,
+        'recieveData' : recieveData
     };
-}(NilsSony.Utils));
+}(SonyNils.Utils));
 
-NilsSony.TwitchStream.hello();
+SonyNils.TwitchStream.getData('starcraft');
