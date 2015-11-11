@@ -7,10 +7,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Twitch.tv Search Stream</title>
 
+    <link rel="dns-prefetch" href="//api.twitch.tv/kraken/search/streams">
+    <link rel="stylesheet" href="css/loading.css" />
 </head>
 
 <body>
     <h1>Twitch.tv Search Stream</h1>
+    <form id="game-search-form" action="#">
+        <fieldset>
+            <label>Find a game being played now &#8230;</label>
+            <input id="game-title" type="search" placeholder="Game Title" />
+            <button type="submit">Search</button>
+        </fieldset>
+    </form>
+
+    <div class="resultsContainer">
+        <div id="loading" class="loading">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+        <div id="twitchResults">
+
+        </div>
+    </div>
+
 
     <script src="js/utls.js"></script>
     <script src="js/twitchStreams.js"></script>
